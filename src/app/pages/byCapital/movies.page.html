@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="transparent">
+    <ion-title>País Finder</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="Buscar por Capital"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-item button *ngFor="let country of displayedCountries">
+      <ion-label>
+        {{ country.name.common }} ({{ country.capital }})
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

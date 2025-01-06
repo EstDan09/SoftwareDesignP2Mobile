@@ -4,13 +4,25 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'countryCap',
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: 'countryCap',
+    loadChildren: () => import('./pages/byCapital/countryCap.module').then( m => m.CountryServiceModule)
+  },
+  {
+    path: 'favorites',
+    loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritosPageModule)
+  },
+  {
+    path: 'visitados',
+    loadChildren: () => import('./pages/visitados/visitados.module').then( m => m.VisitadosPageModule)
+  },
+  {
+    path: 'country/:name',
+    loadChildren: () => import('./pages/countryDetails/countryDetails.module').then( m => m.countryDetailsPageModule)
+  },
 ];
 
 @NgModule({
@@ -19,4 +31,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ countryName }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="details && details.officialName" class="ion-padding">
+    <h2 class="details-title">Details</h2>
+    <p><strong>Official Name:</strong> {{ details.officialName }}</p>
+    <p><strong>Population:</strong> {{ details.population | number }}</p>
+    <p><strong>Currency:</strong>
+      <span *ngFor="let currency of details.currency.split(', ')">
+        {{ currency }}
+      </span>
+    </p>
+    <p><strong>Languages:</strong></p>
+    <ul>
+      <li *ngFor="let language of details.languages">
+        {{ language }}
+      </li>
+    </ul>
+    <div class="buttons-container">
+      <ion-button color="light" (click)="addToFavorites(details.officialName)">
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>
+      <ion-button color="light" [routerLink]="'/favorites'">Favorites</ion-button>
+      <ion-button color="light" (click)="addToVisited(details.officialName)">
+        <ion-icon name="pin"></ion-icon>
+      </ion-button>
+      <ion-button color="light" [routerLink]="'/visitados'">Visited</ion-button>
+    </div>
+  </div>
+</ion-content>
