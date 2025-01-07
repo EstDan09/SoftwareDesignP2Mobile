@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Visited</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <div *ngIf="visitados.length > 0; else noFavorites">
+      <ion-list>
+        <ion-item *ngFor="let country of visitados">
+          <ion-label>{{ country }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  
+    <ng-template #noFavorites>
+      <p>No visited countries yet.</p>
+    </ng-template>
+  </ion-content>
+  
