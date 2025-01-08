@@ -46,7 +46,15 @@ const routes: Routes = [
   {
     path: 'by-region',
     loadChildren: () => import('./pages/by-region/by-region.module').then( m => m.ByRegionPageModule)
+  },  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },
+  {
+    path: 'user',
+    loadChildren: () => import('./pages/user/user.module').then( m => m.UserPageModule)
+  },
+
 ];
 
 @NgModule({

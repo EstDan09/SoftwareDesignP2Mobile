@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { CountryServiceRoutingModule } from './countryCap-routing.module';
 
 import { countryCapPage } from './countryCappage';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CountryServiceRoutingModule
+    CountryServiceRoutingModule,
+    ComponentsModule
   ],
   declarations: [countryCapPage] 
 })

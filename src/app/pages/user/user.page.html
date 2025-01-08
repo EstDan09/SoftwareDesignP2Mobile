@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="toolbar">
+      <ion-title>Perfil</ion-title>
+      <ion-button (click)="logout()">Log out</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="user">
+  <div class="main-data">
+    <ion-avatar>
+      <img [src]="user.picture" />
+    </ion-avatar>
+    <div>
+      <h1>{{ user.name }}</h1>
+      <h3>{{ user.email }}</h3>
+    </div>
+  </div>
+  
+</ion-content>

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ByNamePageRoutingModule } from './by-name-routing.module';
 
 import { ByNamePage } from './by-name.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ByNamePageRoutingModule
+    ByNamePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ByNamePage]
 })
