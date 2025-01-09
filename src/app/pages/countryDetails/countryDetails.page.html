@@ -24,11 +24,11 @@
       </li>
     </ul>
     <div class="buttons-container">
-      <ion-button color="light" (click)="addToFavorites(details.officialName)">
+      <ion-button color="light" (click)="addToFavorites(code)">
         <ion-icon name="heart"></ion-icon>
       </ion-button>
       <ion-button color="light" [routerLink]="'/favorites'">Favorites</ion-button>
-      <ion-button color="light" (click)="addToVisited(details.officialName)">
+      <ion-button color="light" (click)="addToVisited(code)">
         <ion-icon name="pin"></ion-icon>
       </ion-button>
       <ion-button color="light" [routerLink]="'/visitados'">Visited</ion-button>

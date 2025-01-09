@@ -11,10 +11,15 @@ export class CountryService {
   private apiUrl: string = 'https://restcountries.com/v3.1'
   private favorites: string[] = [];
   private visited : string[] = [];
+
   constructor(private http: HttpClient) { }
   
   searchByCapital ( term: string): Observable<Country[]> {
     return this.http.get<Country[]>(`${this.apiUrl}/capital/${term}`);
+  }
+
+  searchByCode ( term: string): Observable<Country[]>{
+    return this.http.get<Country[]>(`${this.apiUrl}/alpha/${term}`);
   }
 
   searchByName ( term: string): Observable<Country[]>{
@@ -61,15 +66,15 @@ export class CountryService {
     return this.visited;
   }
 
-  addToFavorites(countryName: string): void {
-    if (!this.favorites.includes(countryName)) {
-      this.favorites.push(countryName);
+  addToFavorites(countryCode: string): void {
+    if (!this.favorites.includes(countryCode)) {
+      this.favorites.push(countryCode);
     }
   }
 
-  addToVisited(countryName: string): void {
-    if (!this.visited.includes(countryName)) {
-      this.visited.push(countryName);
+  addToVisited(countryCode: string): void {
+    if (!this.visited.includes(countryCode)) {
+      this.visited.push(countryCode);
     }
   }
 
