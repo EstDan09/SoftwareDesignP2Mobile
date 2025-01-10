@@ -12,6 +12,7 @@ export class ByRegionPage implements OnInit {
   selectedRegion: string = '';
   countries: any[] = [];
   loading: boolean = false;
+  
   constructor(private countryService: CountryService) {}
   ngOnInit() {
     this.onSearch();

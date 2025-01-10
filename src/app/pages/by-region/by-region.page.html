@@ -1,4 +1,4 @@
-<ion-menu contentId="by-capital-content" type="overlay">
+<ion-menu contentId="by-region-content" type="overlay">
   <ion-header>
     <ion-toolbar>
       <ion-title>Menú</ion-title>
@@ -42,7 +42,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="by-capital-content" [fullscreen]="true">
+<ion-content id="by-region-content" [fullscreen]="true">
   <ion-item>
     <ion-label>Seleccionar región</ion-label>
     <ion-select [(ngModel)]="selectedRegion" (ionChange)="onSearch()">

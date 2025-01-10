@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Country } from '../pages/models/country.interface'; 
+import { Exchange } from '../pages/models/exchange.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,7 @@ import { Country } from '../pages/models/country.interface';
 export class CountryService {
 
   private apiUrl: string = 'https://restcountries.com/v3.1'
+  private exchangeApi: string = 'https://v6.exchangerate-api.com/v6/7d7c04bad88f24253bcb7af1/latest/'
   private favorites: string[] = [];
   private visited : string[] = [];
 
@@ -35,6 +37,7 @@ export class CountryService {
     population: number;
     currency: string;
     languages: string[];
+    currencies : string[];
   }> {
     return new Observable(observer => {
       this.http.get<any[]>(`${this.apiUrl}/name/${name}`).subscribe({
@@ -47,7 +50,8 @@ export class CountryService {
               .map(key => country.currencies[key]?.name)
               .join(', ') || 'N/A';
             const languages = Object.values(country.languages || []) as string[];
-            observer.next({ officialName, population, currency, languages });
+            const currencies = Object.keys(country.currencies || []) as string [];
+            observer.next({ officialName, population, currency, languages, currencies});
             observer.complete();
           } else {
             observer.error('Country not found');
@@ -84,6 +88,10 @@ export class CountryService {
 
   removeFromVisited(countryName: string): void {
     this.visited = this.visited.filter(name => name !== countryName);
+  }
+
+  getCurrencyInfo(currencyCode: string): Observable<Exchange> {
+    return this.http.get<any>(`${this.exchangeApi}/${currencyCode}`);
   }
 }
 
