@@ -9,15 +9,15 @@
 
 <ion-content [fullscreen]="true">
   <div *ngIf="details && details.officialName" class="ion-padding">
-    <h2 class="details-title">Details</h2>
-    <p><strong>Official Name:</strong> {{ details.officialName }}</p>
-    <p><strong>Population:</strong> {{ details.population | number }}</p>
-    <p><strong>Currency:</strong>
+    <h2 class="details-title">Información</h2>
+    <p><strong>País:</strong> {{ details.officialName }}</p>
+    <p><strong>Población:</strong> {{ details.population | number }}</p>
+    <p><strong>Moneda:</strong>
       <span *ngFor="let currency of details.currency.split(', ')">
         {{ currency }}
       </span>
     </p>
-    <p><strong>Languages:</strong></p>
+    <p><strong>Idiomas:</strong></p>
     <ul>
       <li *ngFor="let language of details.languages">
         {{ language }}
@@ -27,6 +27,19 @@
       <ion-button color="light" (click)="addToFavorites(code)">
         <ion-icon name="heart"></ion-icon>
       </ion-button>
+    </div>
+
+    <!--tasa de cambio -->
+    <div class="exchange-container ion-padding">
+      <h2 class="details-title">Tasa de cambio</h2>
+      <ion-item>
+        <ion-label position="floating">Monto en {{ details.currencies[0]}}</ion-label>
+        <ion-input type="number" [(ngModel)]="inputValue"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="exchange()">USD</ion-button>
+      <ion-text color="primary" *ngIf="ResultExchange">
+        <h3>Equivalent in USD: {{ ResultExchange | number:'1.2-2' }}</h3>
+      </ion-text>
     </div>
   </div>
 </ion-content>
