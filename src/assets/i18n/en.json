@@ -1,0 +1,56 @@
+{
+    "menu": {
+        "title": "Menu",
+        "home": "Home",
+        "byCap": "By Capital",
+        "byName": "By Name",
+        "byReg": "By Region",
+        "about": "About"
+    },
+    "home": {
+        "title": "Home",
+        "welcome": "Welcome",
+        "comment": "Select any option from the sidemenu to start.",
+        "selLang": "Select Language"
+    },
+    "byCap": {
+        "title": "Search by Capital",
+        "search": "Search"
+    },
+    "byName": {
+        "title": "Search by Name",
+        "search": "Search"
+    },
+    "byReg": {
+        "title": "Search by Region",
+        "selReg": "Select Region",
+        "africa": "Africa",
+        "america": "America",
+        "asia": "Asia",
+        "europe": "Europe",
+        "oceania": "Oceania"
+    },
+    "details": {
+        "details": "Details",
+        "name": "Oficcial Name",
+        "population": "Population",
+        "currency": "Currency",
+        "language": "Language",
+        "favErr": "Log in with a valid user to add to favorites",
+        "favMsg": "Added to favorites",
+        "alreadyFav": "Already in favorites"
+    },
+    "auth": {
+        "profile": "Profile",
+        "logIn": "Log in",
+        "logOut": "Log out",
+        "favorites": "Favorites",
+        "capital": "Capital"
+    },
+    "about": {
+        "about": "About",
+        "title": "We are World Traveller!",
+        "text": "Your solution for having information about various countries at your fingertips",
+        "text2": "You will have useful data to get a general understanding of the country"
+    }
+}

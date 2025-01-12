@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
+import { ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 import { CountryService } from 'src/app/services/CountryService';
 import { FireBaseCnxService } from 'src/app/services/fire-base-cnx.service';
 
@@ -13,7 +16,14 @@ export class countryDetailsPage implements OnInit {
   details: any = {};
   code: string = "";
 
-  constructor(private route: ActivatedRoute, private countryService: CountryService, private firebaseService: FireBaseCnxService) {}
+  constructor(
+    private auth: AuthService,
+    private countryService: CountryService,
+    private firebaseService: FireBaseCnxService,
+    private route: ActivatedRoute,
+    private toastController: ToastController,
+    private translateService: TranslateService
+  ) {}
 
   ngOnInit() {
     this.countryName = this.route.snapshot.paramMap.get('name') || '';
@@ -40,14 +50,32 @@ export class countryDetailsPage implements OnInit {
     }
   }
 
-  addToFavorites(countryCode: string) {
-    this.countryService.addToFavorites(countryCode);
+  showMsg(key: string) {
+    this.translateService.get(key).subscribe( async (msg) => {
+      const message = await this.toastController.create({
+        message: msg,
+        duration: 2000,
+        position: "middle"
+      });
 
-    // Firebase
-    this.firebaseService.saveCountries(countryCode);
+      await message.present();
+    });
   }
 
-  addToVisited(countryCode: string) {
-    this.countryService.addToVisited(countryCode);
+  addToFavorites(countryCode: string) {
+    this.auth.user$.subscribe( (response) => {
+      if (response) {
+        this.firebaseService.getCountries().then((res) => {
+          if (res.includes(countryCode)) {
+            this.showMsg("details.alreadyFav");
+          } else {
+            this.firebaseService.saveCountries(countryCode);
+            this.showMsg("details.favMsg");
+          }
+        });
+      } else {
+        this.showMsg("details.favErr");
+      }
+    });
   }
 }

@@ -1,34 +1,4 @@
-<ion-menu contentId="by-capital-content" type="overlay">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menú</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item routerLink="/home" routerDirection="root">
-        <ion-icon name="home" slot="start"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-item>
-      <ion-item routerLink="/countryCap" routerDirection="root">
-        <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Capital</ion-label>
-      </ion-item>
-      <ion-item routerLink="/byName" routerDirection="root">
-        <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Nombre</ion-label>
-      </ion-item>
-      <ion-item routerLink="/by-region" routerDirection="root">
-        <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Región</ion-label>
-      </ion-item>
-      <ion-item routerLink="/about" routerDirection="root">
-        <ion-icon name="information-circle" slot="start"></ion-icon>
-        <ion-label>Acerca de</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+<app-sidemenu></app-sidemenu>
 
 <ion-header [translucent]="true">
   <ion-toolbar color="transparent">
@@ -36,21 +6,21 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <div class="toolbar">
-      <ion-title style="text-align: center;">Buscar por Región</ion-title>
+      <ion-title style="text-align: center;">{{ "byReg.title" | translate }}</ion-title>
       <app-auth-btn></app-auth-btn>
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="by-capital-content" [fullscreen]="true">
+<ion-content id="page-content" [fullscreen]="true">
   <ion-item>
-    <ion-label>Seleccionar región</ion-label>
+    <ion-label>{{ "byReg.selReg" | translate }}</ion-label>
     <ion-select [(ngModel)]="selectedRegion" (ionChange)="onSearch()">
-      <ion-select-option value="Africa">Africa</ion-select-option>
-      <ion-select-option value="Americas">America</ion-select-option>
-      <ion-select-option value="Oceania">Oceania</ion-select-option>
-      <ion-select-option value="Asia">Asia</ion-select-option>
-      <ion-select-option value="Europe">Europa</ion-select-option>
+      <ion-select-option value="Africa">{{ "byReg.africa" | translate }}</ion-select-option>
+      <ion-select-option value="Americas">{{ "byReg.america" | translate }}</ion-select-option>
+      <ion-select-option value="Oceania">{{ "byReg.oceania" | translate }}</ion-select-option>
+      <ion-select-option value="Asia">{{ "byReg.asia" | translate }}</ion-select-option>
+      <ion-select-option value="Europe">{{ "byReg.europe" | translate }}</ion-select-option>
     </ion-select>
   </ion-item>
 

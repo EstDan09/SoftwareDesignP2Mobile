@@ -1,30 +1,30 @@
-<ion-menu menuId="sidemenu" contentId="home-content" type="overlay">
+<ion-menu contentId="page-content" type="overlay">
   <ion-header>
     <ion-toolbar>
-      <ion-title>País Finder</ion-title>
+      <ion-title>{{ "menu.title" | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
       <ion-item routerLink="/home" routerDirection="root">
         <ion-icon name="home" slot="start"></ion-icon>
-        <ion-label>Inicio</ion-label>
+        <ion-label>{{ "menu.home" | translate }}</ion-label>
       </ion-item>
       <ion-item routerLink="/countryCap" routerDirection="root">
         <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Capital</ion-label>
+        <ion-label>{{ "menu.byCap" | translate }}</ion-label>
       </ion-item>
       <ion-item routerLink="/byName" routerDirection="root">
         <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Nombre </ion-label>
+        <ion-label>{{ "menu.byName" | translate }} </ion-label>
       </ion-item>
       <ion-item routerLink="/byRegion" routerDirection="root">
           <ion-icon name="search" slot="start"></ion-icon>
-          <ion-label>Por Region </ion-label>
+          <ion-label>{{ "menu.byReg" | translate }} </ion-label>
       </ion-item>
       <ion-item routerLink="/about" routerDirection="root">
         <ion-icon name="information-circle" slot="start"></ion-icon>
-        <ion-label>Acerca de</ion-label>
+        <ion-label>{{ "menu.about" | translate }}</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>

@@ -26,8 +26,9 @@ export class UserPage implements OnInit {
     this.getFavorites();
   }
 
-  toggleFavorites() {
-    this.isFavoritesOpen = !this.isFavoritesOpen;
+  deleteFavorites(code: string) {
+    this.firebaseService.deleteCountries(code);
+    this.updateFavorites();
   }
 
   getFavorites() {
@@ -40,6 +41,15 @@ export class UserPage implements OnInit {
         });
       }
     });
+  }
+
+  toggleFavorites() {
+    this.isFavoritesOpen = !this.isFavoritesOpen;
+  }
+
+  updateFavorites() {
+    this.favorites = [];
+    this.getFavorites();
   }
 
   logout() {

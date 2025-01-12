@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
       CommonModule,
       FormsModule,
       IonicModule,
-      RouterModule
+      RouterModule,
+      TranslateModule.forChild()
     ],
     exports: [
       AuthBtnComponent,

@@ -8,6 +8,7 @@ import { CountryServiceRoutingModule } from './countryCap-routing.module';
 
 import { countryCapPage } from './countryCappage';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     CountryServiceRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    TranslateModule.forChild()
   ],
   declarations: [countryCapPage] 
 })

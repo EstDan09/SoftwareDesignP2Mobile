@@ -1,0 +1,56 @@
+{
+    "menu": {
+        "title": "Menú",
+        "home": "Inicio",
+        "byCap": "Por Capital",
+        "byName": "Por Nombre",
+        "byReg": "Por Región",
+        "about": "Acerca de"
+    },
+    "home": {
+        "title": "Inicio",
+        "welcome": "Bienvenido",
+        "comment": "Selecciona una opción en el menú lateral para comenzar.",
+        "selLang": "Seleccionar Idioma"
+    },
+    "byCap": {
+        "title": "Buscar por Capital",
+        "search": "Buscar"
+    },
+    "byName": {
+        "title": "Buscar por Nombre",
+        "search": "Buscar"
+    },
+    "byReg": {
+        "title": "Buscar por Región",
+        "selReg": "Seleccionar Región",
+        "africa": "África",
+        "america": "América",
+        "asia": "Asia",
+        "europe": "Europa",
+        "oceania": "Oceanía"
+    },
+    "details": {
+        "details": "Detalles",
+        "name": "Nombre Oficial",
+        "population": "Población",
+        "currency": "Moneda",
+        "language": "Idioma",
+        "favErr": "Ingrese con una cuenta válida para añadir a favoritos",
+        "favMsg": "Añadido a favoritos",
+        "alreadyFav": "Ya está en favoritos"
+    },
+    "auth": {
+        "profile": "Perfil",
+        "logIn": "Iniciar sesión",
+        "logOut": "Cerrar sesión",
+        "favorites": "Favoritos",
+        "capital": "Capital"
+    },
+    "about": {
+        "about": "Acerca de",
+        "title": "Somos World Traveller!",
+        "text": "Su solucion para tener informacion de diversos paises a su alcance",
+        "text2": "Podras tener datos utiles para conocer de manera general el pais"
+    }
+}

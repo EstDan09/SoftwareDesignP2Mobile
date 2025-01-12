@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { Firestore, doc, updateDoc, arrayUnion, setDoc, getDoc } from '@angular/fire/firestore';
+import { Firestore, doc, updateDoc, arrayUnion, setDoc, getDoc, arrayRemove } from '@angular/fire/firestore';
 import { firstValueFrom } from 'rxjs';
 
 @Injectable({
@@ -18,6 +18,26 @@ export class FireBaseCnxService {
         try {
           await updateDoc(userDocRef, {
             wishlist: arrayUnion(country),
+          });
+        } catch (error: any) {
+          if (error.code === 'not-found') {
+            await setDoc(userDocRef, { wishlist: [country] });
+          } else {
+            throw error;
+          }
+        }
+      });
+    }
+  }
+
+  async deleteCountries(country: string) {
+    const user = await firstValueFrom(this._auth.user$);
+    if (user && user.email) {
+      const userDocRef = doc(this._firebase, `users/${user.email}`);
+      await this.ngZone.runOutsideAngular(async () => {
+        try {
+          await updateDoc(userDocRef, {
+            wishlist: arrayRemove(country),
           });
         } catch (error: any) {
           if (error.code === 'not-found') {

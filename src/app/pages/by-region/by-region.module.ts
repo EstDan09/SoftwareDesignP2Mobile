@@ -8,6 +8,7 @@ import { ByRegionPageRoutingModule } from './by-region-routing.module';
 
 import { ByRegionPage } from './by-region.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     ByRegionPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    TranslateModule.forChild()
   ],
   declarations: [ByRegionPage]
 })

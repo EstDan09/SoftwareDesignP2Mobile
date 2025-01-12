@@ -1,34 +1,4 @@
-<ion-menu contentId="by-capital-content" type="overlay">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menú</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item routerLink="/home" routerDirection="root">
-        <ion-icon name="home" slot="start"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-item>
-      <ion-item routerLink="/countryCap" routerDirection="root">
-        <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Capital</ion-label>
-      </ion-item>
-      <ion-item routerLink="/byName" routerDirection="root">
-        <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Nombre</ion-label>
-      </ion-item>
-      <ion-item routerLink="/byRegion" routerDirection="root">
-        <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Region</ion-label>
-      </ion-item>
-      <ion-item routerLink="/about" routerDirection="root">
-        <ion-icon name="information-circle" slot="start"></ion-icon>
-        <ion-label>Acerca de</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+<app-sidemenu></app-sidemenu>
 
 <ion-header [translucent]="true">
   <ion-toolbar color="transparent">
@@ -36,15 +6,15 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <div class="toolbar">
-      <ion-title style="text-align: center;">Buscar por Capital</ion-title>
+      <ion-title style="text-align: center;">{{ "byCap.title" | translate }}</ion-title>
       <app-auth-btn></app-auth-btn>
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="by-capital-content" [fullscreen]="true">
+<ion-content id="page-content" [fullscreen]="true">
   <ion-item class="search-bar">
-    <ion-input [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="Buscar"></ion-input>
+    <ion-input [(ngModel)]="searchTerm" (ionInput)="onSearch()" placeholder="{{ 'byCap.search' | translate }}"></ion-input>
   </ion-item>
 
   <ion-list>

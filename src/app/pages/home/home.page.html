@@ -1,34 +1,4 @@
-<ion-menu contentId="home-content" type="overlay">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>País Finder</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item routerLink="/home" routerDirection="root">
-        <ion-icon name="home" slot="start"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-item>
-      <ion-item routerLink="/countryCap" routerDirection="root">
-        <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Capital</ion-label>
-      </ion-item>
-      <ion-item routerLink="/byName" routerDirection="root">
-        <ion-icon name="search" slot="start"></ion-icon>
-        <ion-label>Por Nombre </ion-label>
-      </ion-item>
-      <ion-item routerLink="/byRegion" routerDirection="root">
-          <ion-icon name="search" slot="start"></ion-icon>
-          <ion-label>Por Region </ion-label>
-      </ion-item>
-      <ion-item routerLink="/about" routerDirection="root">
-        <ion-icon name="information-circle" slot="start"></ion-icon>
-        <ion-label>Acerca de</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+<app-sidemenu></app-sidemenu>
 
 <ion-header>
   <ion-toolbar>
@@ -36,14 +6,19 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <div class="toolbar">
-      <ion-title>Inicio</ion-title>
+      <ion-title>{{ "home.title" | translate }}</ion-title>
       <app-auth-btn></app-auth-btn>
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="home-content">
-  <h1>Bienvenido</h1>
-  <p>Selecciona una opción en el menú lateral para comenzar.</p>
+<ion-content id="page-content">
+  <h1>{{ "home.welcome" | translate }}</h1>
+  <p>{{ "home.comment" | translate }}</p>
+  <label>{{ "home.selLang" | translate }}</label>
+  <ion-select [(ngModel)]="selectedLanguage" (ionChange)="changeLanguage()" style="background-color: rgb(46, 46, 46);">
+    <ion-select-option value="en">English</ion-select-option>
+    <ion-select-option value="es">Español</ion-select-option>
+  </ion-select>
 </ion-content>
 

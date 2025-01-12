@@ -8,6 +8,7 @@ import { ByNamePageRoutingModule } from './by-name-routing.module';
 
 import { ByNamePage } from './by-name.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     ByNamePageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    TranslateModule.forChild()
   ],
   declarations: [ByNamePage]
 })

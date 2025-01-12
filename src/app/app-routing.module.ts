@@ -28,10 +28,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritosPageModule)
   },
   {
-    path: 'visitados',
-    loadChildren: () => import('./pages/visitados/visitados.module').then( m => m.VisitadosPageModule)
-  },
-  {
     path: 'country/:name',
     loadChildren: () => import('./pages/countryDetails/countryDetails.module').then( m => m.countryDetailsPageModule)
   },
@@ -46,7 +42,8 @@ const routes: Routes = [
   {
     path: 'by-region',
     loadChildren: () => import('./pages/by-region/by-region.module').then( m => m.ByRegionPageModule)
-  },  {
+  },
+  {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },
