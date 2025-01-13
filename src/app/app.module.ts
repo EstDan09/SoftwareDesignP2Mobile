@@ -16,6 +16,8 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
+import { Capacitor } from '@capacitor/core';
+
 const firebaseConfig = {
   apiKey: "AIzaSyBZBjEAoo_Ec02kcA3eDoAo1WTQGPQKxwE",
   authDomain: "proyecto1dds.firebaseapp.com",
@@ -40,8 +42,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       domain: 'dev-ge18shrpotjsh68b.us.auth0.com',
       clientId: 'fQLoXnPLiquM1ztmal3uRNEE71FuqLdP',
       authorizationParams: {
-        redirect_uri: window.location.origin + '/home'
-      }
+        redirect_uri: Capacitor.isNativePlatform()
+          ? 'com.worldtravel.app://callback'
+          : window.location.origin + '/callback',
+      },
+      cacheLocation: 'localstorage',
+      useRefreshTokens: true,
     }),
     HttpClientModule,
     TranslateModule.forRoot({
